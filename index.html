@@ -151,6 +151,15 @@
   .footnote { font-size: 14px; color: var(--ink-soft); margin: 2px 2px 0; }
   .footnote b { color: var(--ink); font-weight: 600; }
 
+  .aim {
+    background: var(--accent-tint);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 16px; padding: 22px 20px; text-align: center;
+  }
+  .aim .t-lbl { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .aim .t-num { font-size: clamp(34px, 11vw, 46px); font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; margin: 5px 0 3px; }
+  .aim .sub { font-size: 14px; color: var(--ink-soft); }
+
   /* ---- Say / scripts ---- */
   .scripts { display: flex; flex-direction: column; gap: 10px; }
   .say {
@@ -223,40 +232,23 @@
     <p>Get their lowest price on paper, then leave. Alejandro takes it from there.</p>
   </div>
 
-  <p class="sec-label"><span class="dot"></span> The 3 they have</p>
+  <p class="sec-label"><span class="dot"></span> The car</p>
+
+  <div class="car best" style="grid-template-columns: 1fr;">
+    <div class="cname">2026 GLC 350e 4MATIC <span class="tag">Plug-in hybrid</span></div>
+    <div class="msrp">Black · Macchiato Beige interior</div>
+    <div class="msrp">Stock&nbsp;#TF569201 &nbsp;·&nbsp; Sticker (MSRP): <s>$63,150</s></div>
+  </div>
 
   <div class="note">
-    Heads up: the <strong>“Selling Price”</strong> on their website (like $64,644) is the sticker <strong>plus fees</strong> — that's not a discount. Your goal is to get them <strong>below the MSRP</strong> number shown.
+    Heads up: their website price of <strong>$64,644</strong> is the sticker <strong>plus fees</strong> — that's <em>higher</em> than sticker, not a discount. Your goal is to get them <strong>below the $63,150 sticker.</strong>
   </div>
 
-  <div class="cars">
-    <div class="car best">
-      <div class="cname">GLC 350e #1 <span class="tag">Best value</span></div>
-      <div class="msrp">Sticker (MSRP): <s>$63,150</s></div>
-      <div class="target">
-        <div class="t-lbl">Aim to pay</div>
-        <div class="t-num">under $59,000</div>
-      </div>
-    </div>
-    <div class="car best">
-      <div class="cname">GLC 350e #2 <span class="tag">Best value</span></div>
-      <div class="msrp">Sticker (MSRP): <s>$63,435</s></div>
-      <div class="target">
-        <div class="t-lbl">Aim to pay</div>
-        <div class="t-num">under $59,000</div>
-      </div>
-    </div>
-    <div class="car">
-      <div class="cname">GLC 350e #3</div>
-      <div class="msrp">Sticker (MSRP): <s>$67,535</s> · nicer, pricier</div>
-      <div class="target">
-        <div class="t-lbl">Aim to pay</div>
-        <div class="t-num">under $63,000</div>
-      </div>
-    </div>
+  <div class="aim">
+    <div class="t-lbl">Aim to pay</div>
+    <div class="t-num">under $59,000</div>
+    <div class="sub">about $4,000–$5,000 under the sticker</div>
   </div>
-
-  <p class="footnote">Cars <b>#1 and #2</b> are almost identical and the cheapest — best value. All three are <b>black</b>; if you'd rather a different color, ask them to locate one. A <b>great</b> price is about <b>$4,000–$5,000 under the sticker</b>.</p>
 
   <p class="sec-label"><span class="dot"></span> What to say</p>
 
