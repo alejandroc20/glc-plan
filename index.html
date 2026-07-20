@@ -165,15 +165,47 @@
     border-radius: 14px; padding: 6px 18px; box-shadow: var(--shadow);
   }
   .cap-row {
-    display: flex; align-items: baseline; gap: 10px;
-    padding: 13px 0; border-bottom: 1px dashed var(--line); font-size: 15px;
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 15px;
   }
   .cap-row:last-child { border-bottom: 0; }
-  .cap-row span { flex: none; color: var(--ink); font-weight: 500; }
-  .cap-row i {
-    flex: 1; border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
-    height: 1px; align-self: flex-end; margin-bottom: 3px;
+  .cap-row label { flex: 1 1 46%; color: var(--ink); font-weight: 500; }
+  .cap-row input {
+    flex: 1 1 54%; min-width: 0; width: 100%;
+    font: inherit; font-size: 16px; /* 16px stops iOS zoom-on-focus */
+    font-variant-numeric: tabular-nums;
+    color: var(--ink); background: var(--surface-2);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 9px 11px; -webkit-appearance: none; appearance: none;
   }
+  .cap-row input::placeholder { color: color-mix(in srgb, var(--ink-soft) 65%, transparent); }
+  .cap-row input:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+    background: var(--surface);
+  }
+  .saved {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    font-size: 13px; color: var(--go); font-weight: 600;
+    padding: 4px 0 2px; min-height: 20px;
+    opacity: 0; transition: opacity .25s;
+  }
+  .saved.on { opacity: 1; }
+  .btn {
+    display: block; width: 100%; font: inherit; font-size: 17px; font-weight: 700;
+    color: var(--merc-ink); background: var(--merc);
+    border: 0; border-radius: 12px; padding: 16px 18px;
+    cursor: pointer; box-shadow: var(--shadow); text-align: center;
+    -webkit-appearance: none; appearance: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .btn.ghost {
+    background: transparent; color: var(--ink-soft);
+    border: 1px solid var(--line); box-shadow: none;
+    font-size: 14px; font-weight: 600; padding: 11px;
+  }
+  .btnrow { display: flex; flex-direction: column; gap: 9px; }
 
   /* ---- Say / scripts ---- */
   .scripts { display: flex; flex-direction: column; gap: 10px; }
@@ -282,18 +314,28 @@
 
   <p class="sec-label"><span class="dot"></span> Numbers to bring home</p>
 
-  <p class="footnote" style="margin-bottom:2px;">Don't worry about what these mean — just get them written down. <b>Alejandro will decode them.</b> If it's all on the printout, you're done.</p>
+  <p class="footnote" style="margin-bottom:2px;">Type them in right here — it saves as you go. Don't worry about what they mean, <b>Alejandro will decode them.</b> Leave blank anything they won't tell you.</p>
 
   <div class="capture">
-    <div class="cap-row"><span>Price of the car</span><i></i></div>
-    <div class="cap-row"><span>Gross cap cost</span><i></i></div>
-    <div class="cap-row"><span>Adjusted cap cost</span><i></i></div>
-    <div class="cap-row"><span>Residual value</span><i></i></div>
-    <div class="cap-row"><span>Money factor</span><i></i></div>
-    <div class="cap-row"><span>$7,500 credit applied?</span><i></i></div>
-    <div class="cap-row"><span>Monthly payment</span><i></i></div>
-    <div class="cap-row"><span>Due at signing</span><i></i></div>
+    <div class="cap-row"><label for="f1">Price of the car</label><input id="f1" data-k="price" type="text" inputmode="decimal" placeholder="$"></div>
+    <div class="cap-row"><label for="f2">Gross cap cost</label><input id="f2" data-k="gross" type="text" inputmode="decimal" placeholder="$"></div>
+    <div class="cap-row"><label for="f3">Adjusted cap cost</label><input id="f3" data-k="adj" type="text" inputmode="decimal" placeholder="$"></div>
+    <div class="cap-row"><label for="f4">Residual value</label><input id="f4" data-k="residual" type="text" inputmode="decimal" placeholder="$"></div>
+    <div class="cap-row"><label for="f5">Money factor</label><input id="f5" data-k="mf" type="text" inputmode="decimal" placeholder="0.00___"></div>
+    <div class="cap-row"><label for="f6">$7,500 credit applied?</label><input id="f6" data-k="credit" type="text" placeholder="yes / no"></div>
+    <div class="cap-row"><label for="f7">Monthly payment</label><input id="f7" data-k="payment" type="text" inputmode="decimal" placeholder="$"></div>
+    <div class="cap-row"><label for="f8">Due at signing</label><input id="f8" data-k="das" type="text" inputmode="decimal" placeholder="$"></div>
+    <div class="cap-row"><label for="f9">Anything else / notes</label><input id="f9" data-k="notes" type="text" placeholder="optional"></div>
   </div>
+
+  <div class="saved" id="savedMsg">✓ Saved on your phone</div>
+
+  <div class="btnrow">
+    <button class="btn" id="sendBtn" type="button">Send these to Alejandro</button>
+    <button class="btn ghost" id="clearBtn" type="button">Clear all</button>
+  </div>
+
+  <p class="footnote" style="text-align:center;">Tap send when you're done — it opens a text with everything filled in. <b>Also take a photo of the printout.</b></p>
 
   <p class="sec-label"><span class="dot"></span> Don't do this</p>
 
@@ -318,3 +360,89 @@
   <p class="signoff">You've got this. You're just collecting a good offer — <b>Alejandro handles the rest.</b></p>
 
 </div>
+
+<script>
+(function () {
+  var KEY = 'glc-quote-v1';
+  var inputs = Array.prototype.slice.call(document.querySelectorAll('.cap-row input'));
+  var savedMsg = document.getElementById('savedMsg');
+  var LABELS = {
+    price: 'Price of the car', gross: 'Gross cap cost', adj: 'Adjusted cap cost',
+    residual: 'Residual value', mf: 'Money factor', credit: '$7,500 credit applied',
+    payment: 'Monthly payment', das: 'Due at signing', notes: 'Notes'
+  };
+
+  function store(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); return true; } catch (e) { return false; }
+  }
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; }
+  }
+
+  // Restore anything previously typed
+  var data = load();
+  inputs.forEach(function (el) {
+    var k = el.getAttribute('data-k');
+    if (data[k]) el.value = data[k];
+  });
+
+  var flashTimer;
+  function flashSaved() {
+    savedMsg.classList.add('on');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(function () { savedMsg.classList.remove('on'); }, 1600);
+  }
+
+  var saveTimer;
+  function collect() {
+    var out = {};
+    inputs.forEach(function (el) {
+      var v = el.value.trim();
+      if (v) out[el.getAttribute('data-k')] = v;
+    });
+    return out;
+  }
+
+  inputs.forEach(function (el) {
+    el.addEventListener('input', function () {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function () {
+        if (store(collect())) flashSaved();
+      }, 350);
+    });
+  });
+
+  function buildMessage() {
+    var d = collect();
+    var lines = ['GLC 350e quote — stock TF569201', ''];
+    Object.keys(LABELS).forEach(function (k) {
+      if (d[k]) lines.push(LABELS[k] + ': ' + d[k]);
+    });
+    if (lines.length === 2) return null;
+    return lines.join('\n');
+  }
+
+  document.getElementById('sendBtn').addEventListener('click', function () {
+    var msg = buildMessage();
+    if (!msg) { alert('Type in at least one number first.'); return; }
+    if (navigator.share) {
+      navigator.share({ text: msg }).catch(function () {});
+      return;
+    }
+    // Fallback: SMS, then clipboard
+    var sms = 'sms:?&body=' + encodeURIComponent(msg);
+    var win = window.open(sms, '_self');
+    if (!win && navigator.clipboard) {
+      navigator.clipboard.writeText(msg).then(function () {
+        alert('Copied! Paste it into a text to Alejandro.');
+      });
+    }
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    if (!confirm('Clear everything you typed?')) return;
+    inputs.forEach(function (el) { el.value = ''; });
+    try { localStorage.removeItem(KEY); } catch (e) {}
+  });
+})();
+</script>
