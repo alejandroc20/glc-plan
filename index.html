@@ -1,448 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paola's GLC 300 — Dealer Plan</title>
 <style>
-  :root {
-    --bg: #EBEEF2;
-    --surface: #FFFFFF;
-    --surface-2: #F4F6F9;
-    --ink: #161A20;
-    --ink-soft: #515B67;
-    --line: #DCE1E8;
-    --accent: #A9722E;
-    --accent-tint: #F7EEDF;
-    --go: #2C7A55;
-    --go-tint: #E3F0E9;
-    --merc: #2B3A47;
-    --merc-ink: #FFFFFF;
-    --stop: #B23B3B;
-    --shadow: 0 1px 2px rgba(20,30,45,.06), 0 8px 24px rgba(20,30,45,.06);
-    --font-display: Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  :root{
+    --bg:#0e0f13; --card:#181a20; --card2:#1f222b; --line:#2c303b;
+    --text:#f3f4f6; --muted:#a1a7b3; --accent:#4f8cff; --good:#37d67a; --warn:#ffb020; --bad:#ff5a5a;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0F1217;
-      --surface: #191D24;
-      --surface-2: #1E232B;
-      --ink: #ECEFF3;
-      --ink-soft: #A3ADB9;
-      --line: #2A313A;
-      --accent: #D6A15A;
-      --accent-tint: #2A2214;
-      --go: #59B98B;
-      --go-tint: #172C21;
-      --merc: #C6D2DE;
-      --merc-ink: #121620;
-      --stop: #E07373;
-      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
-    }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f5f7; --card:#ffffff; --card2:#f0f2f6; --line:#e2e5ea;
+      --text:#14161c; --muted:#5a6472; --accent:#1f6fff; }
   }
-  :root[data-theme="light"] {
-    --bg: #EBEEF2; --surface: #FFFFFF; --surface-2: #F4F6F9; --ink: #161A20;
-    --ink-soft: #515B67; --line: #DCE1E8; --accent: #A9722E; --accent-tint: #F7EEDF;
-    --go: #2C7A55; --go-tint: #E3F0E9; --merc: #2B3A47; --merc-ink: #FFFFFF;
-    --stop: #B23B3B; --shadow: 0 1px 2px rgba(20,30,45,.06), 0 8px 24px rgba(20,30,45,.06);
-  }
-  :root[data-theme="dark"] {
-    --bg: #0F1217; --surface: #191D24; --surface-2: #1E232B; --ink: #ECEFF3;
-    --ink-soft: #A3ADB9; --line: #2A313A; --accent: #D6A15A; --accent-tint: #2A2214;
-    --go: #59B98B; --go-tint: #172C21; --merc: #C6D2DE; --merc-ink: #121620;
-    --stop: #E07373; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
-  }
-
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-  }
-  .wrap {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 28px 20px 64px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  /* ---- Hero ---- */
-  .hero { padding: 8px 0 4px; }
-  .eyebrow {
-    font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--accent); margin: 0 0 10px;
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(30px, 8vw, 40px);
-    line-height: 1.08;
-    letter-spacing: -.01em;
-    margin: 0 0 12px;
-    text-wrap: balance;
-  }
-  .hero p {
-    font-size: 17px; color: var(--ink-soft); margin: 0; max-width: 46ch;
-  }
-  .hero b { color: var(--ink); font-weight: 600; }
-
-  /* ---- Mission banner ---- */
-  .mission {
-    background: var(--merc);
-    color: var(--merc-ink);
-    border-radius: 14px;
-    padding: 18px 20px;
-    box-shadow: var(--shadow);
-  }
-  .mission .lead { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .72; font-weight: 700; margin: 0 0 6px; }
-  .mission p { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.4; }
-
-  /* ---- Section label ---- */
-  .sec-label {
-    font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--ink-soft); margin: 6px 0 -6px; display: flex; align-items: center; gap: 9px;
-  }
-  .sec-label .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
-
-  /* ---- Heads-up note ---- */
-  .note {
-    background: var(--accent-tint);
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-    border-radius: 12px;
-    padding: 15px 17px;
-    font-size: 15px;
-    color: var(--ink);
-  }
-  .note strong { color: var(--accent); }
-
-  /* ---- Car cards ---- */
-  .cars { display: flex; flex-direction: column; gap: 12px; }
-  .car {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px 18px;
-    box-shadow: var(--shadow);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4px 16px;
-    align-items: center;
-  }
-  .car.best { border-color: color-mix(in srgb, var(--go) 55%, var(--line)); }
-  .car .cname { font-weight: 600; font-size: 16px; grid-column: 1; }
-  .car .tag {
-    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .05em;
-    text-transform: uppercase; color: var(--go); background: var(--go-tint);
-    padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle;
-  }
-  .car .msrp { grid-column: 1; color: var(--ink-soft); font-size: 14px; }
-  .car .msrp s { opacity: .8; }
-  .car .target {
-    grid-column: 2; grid-row: 1 / span 2;
-    text-align: right; padding-left: 14px;
-    border-left: 1px solid var(--line);
-  }
-  .car .target .t-lbl { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
-  .car .target .t-num {
-    font-size: 22px; font-weight: 800; color: var(--accent);
-    font-variant-numeric: tabular-nums; line-height: 1.15; white-space: nowrap;
-  }
-
-  .footnote { font-size: 14px; color: var(--ink-soft); margin: 2px 2px 0; }
-  .footnote b { color: var(--ink); font-weight: 600; }
-
-  .aim {
-    background: var(--accent-tint);
-    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-    border-radius: 16px; padding: 22px 20px; text-align: center;
-  }
-  .aim .t-lbl { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-  .aim .t-num { font-size: clamp(34px, 11vw, 46px); font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; margin: 5px 0 3px; }
-  .aim .sub { font-size: 14px; color: var(--ink-soft); }
-
-  .capture {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 14px; padding: 6px 18px; box-shadow: var(--shadow);
-  }
-  .cap-row {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 15px;
-  }
-  .cap-row:last-child { border-bottom: 0; }
-  .cap-row label { flex: 1 1 46%; color: var(--ink); font-weight: 500; }
-  .cap-row input {
-    flex: 1 1 54%; min-width: 0; width: 100%;
-    font: inherit; font-size: 16px; /* 16px stops iOS zoom-on-focus */
-    font-variant-numeric: tabular-nums;
-    color: var(--ink); background: var(--surface-2);
-    border: 1px solid var(--line); border-radius: 8px;
-    padding: 9px 11px; -webkit-appearance: none; appearance: none;
-  }
-  .cap-row input::placeholder { color: color-mix(in srgb, var(--ink-soft) 65%, transparent); }
-  .cap-row input:focus {
-    outline: none; border-color: var(--accent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
-    background: var(--surface);
-  }
-  .saved {
-    display: flex; align-items: center; justify-content: center; gap: 7px;
-    font-size: 13px; color: var(--go); font-weight: 600;
-    padding: 4px 0 2px; min-height: 20px;
-    opacity: 0; transition: opacity .25s;
-  }
-  .saved.on { opacity: 1; }
-  .btn {
-    display: block; width: 100%; font: inherit; font-size: 17px; font-weight: 700;
-    color: var(--merc-ink); background: var(--merc);
-    border: 0; border-radius: 12px; padding: 16px 18px;
-    cursor: pointer; box-shadow: var(--shadow); text-align: center;
-    -webkit-appearance: none; appearance: none;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  .btn.ghost {
-    background: transparent; color: var(--ink-soft);
-    border: 1px solid var(--line); box-shadow: none;
-    font-size: 14px; font-weight: 600; padding: 11px;
-  }
-  .btnrow { display: flex; flex-direction: column; gap: 9px; }
-
-  /* ---- Say / scripts ---- */
-  .scripts { display: flex; flex-direction: column; gap: 10px; }
-  .say {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--accent);
-    border-radius: 10px;
-    padding: 13px 16px;
-    font-size: 16px;
-    box-shadow: var(--shadow);
-  }
-  .say .q { font-family: var(--font-display); color: var(--accent); font-size: 19px; font-weight: 700; margin-right: 2px; }
-
-  /* ---- Don't list ---- */
-  .donts { display: flex; flex-direction: column; gap: 2px; }
-  .dont {
-    display: flex; gap: 12px; align-items: flex-start;
-    padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 16px;
-  }
-  .dont:last-child { border-bottom: 0; }
-  .dont .x {
-    flex: none; width: 22px; height: 22px; border-radius: 50%;
-    background: color-mix(in srgb, var(--stop) 15%, transparent);
-    color: var(--stop); font-weight: 800; font-size: 14px;
-    display: grid; place-items: center; margin-top: 1px;
-  }
-  .dont small { display: block; color: var(--ink-soft); font-size: 14px; margin-top: 2px; }
-
-  /* ---- Big callout ---- */
-  .callout {
-    background: var(--merc); color: var(--merc-ink);
-    border-radius: 16px; padding: 24px 22px; box-shadow: var(--shadow); text-align: center;
-  }
-  .callout .k { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; opacity: .72; margin: 0 0 10px; }
-  .callout h2 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin: 0 0 10px; line-height: 1.15; }
-  .callout p { margin: 0; font-size: 16px; opacity: .92; max-width: 40ch; margin-inline: auto; }
-
-  /* ---- Exit line ---- */
-  .exit {
-    background: var(--go-tint);
-    border: 1px solid color-mix(in srgb, var(--go) 40%, transparent);
-    border-radius: 14px; padding: 18px 20px;
-  }
-  .exit .k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--go); margin: 0 0 8px; }
-  .exit p { margin: 0; font-family: var(--font-display); font-size: 20px; line-height: 1.35; color: var(--ink); }
-
-  .signoff { text-align: center; color: var(--ink-soft); font-size: 15px; padding: 4px 0; }
-  .signoff b { color: var(--ink); }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .wrap > * { animation: rise .5s cubic-bezier(.2,.7,.3,1) both; }
-    .wrap > *:nth-child(2){animation-delay:.04s}
-    .wrap > *:nth-child(3){animation-delay:.08s}
-    .wrap > *:nth-child(4){animation-delay:.12s}
-    .wrap > *:nth-child(n+5){animation-delay:.16s}
-    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;}
+  .wrap{max-width:640px;margin:0 auto;padding:18px 16px 60px}
+  h1{font-size:24px;line-height:1.2;margin:6px 0 2px}
+  h2{font-size:19px;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+  .big{font-size:15px}
+  .goal{background:linear-gradient(135deg,#1f6fff22,#37d67a18);border:1px solid var(--accent)}
+  .num{font-size:34px;font-weight:800;letter-spacing:-.5px;margin:2px 0}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .l{color:var(--muted)}
+  .row .r{font-weight:700;text-align:right}
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;vertical-align:middle}
+  .t-goal{background:var(--good);color:#04210f}
+  .t-floor{background:var(--warn);color:#3a2600}
+  .t-stop{background:var(--bad);color:#2c0000}
+  .say{background:var(--card2);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;margin:10px 0;font-size:16px}
+  .say b{color:var(--accent)}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:7px 0}
+  .no li{list-style:none;position:relative;padding-left:26px}
+  .no li:before{content:"✕";position:absolute;left:0;color:var(--bad);font-weight:800}
+  .yes li{list-style:none;position:relative;padding-left:26px}
+  .yes li:before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+  .step{display:flex;gap:12px;margin:14px 0}
+  .step .n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  .step .b{flex:1}
+  .step .b b{display:block;margin-bottom:2px}
+  .warnbox{background:#ffb0200f;border:1px solid var(--warn)}
+  .foot{color:var(--muted);font-size:13px;text-align:center;margin-top:30px}
+  .pill{font-size:13px;color:var(--muted)}
+  textarea{width:100%;min-height:110px;background:var(--card2);color:var(--text);
+    border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;margin-top:8px}
+  .btn{display:block;width:100%;text-align:center;background:var(--accent);color:#fff;
+    text-decoration:none;font-weight:700;padding:14px;border-radius:12px;margin-top:10px;border:none;font-size:16px}
+  .k{font-variant-numeric:tabular-nums}
 </style>
-
+</head>
+<body>
 <div class="wrap">
 
-  <header class="hero">
-    <p class="eyebrow">For Paola</p>
-    <h1>Your Mercedes GLC game plan</h1>
-    <p>You're going in to drive the car and get their <b>best price in writing</b>. That's the whole job today — <b>you are not signing anything.</b></p>
-  </header>
+  <h1>🖤 GLC 300 — Your Dealer Plan</h1>
+  <p class="sub">2026 Mercedes GLC 300 SUV · Mercedes-Benz of Miami · <b>39-month lease · 12k mi/yr · $0 down</b><br>
+  Same dealer you already beat down on the 350e — you've got this.</p>
 
-  <div class="mission">
-    <p class="lead">Today's mission</p>
-    <p>Get their lowest price on paper, then leave. Alejandro takes it from there.</p>
+  <!-- GOAL -->
+  <div class="card goal">
+    <div class="pill">The number that matters</div>
+    <div class="num">13% off the sticker</div>
+    <div class="big">Goal price: <b>~$46,400</b> &nbsp;•&nbsp; Never accept less than <b>10% ($48,020)</b></div>
   </div>
 
-  <p class="sec-label"><span class="dot"></span> The car</p>
-
-  <div class="car best" style="grid-template-columns: 1fr;">
-    <div class="cname">2026 GLC 350e 4MATIC <span class="tag">Plug-in hybrid</span></div>
-    <div class="msrp">Black · Macchiato Beige interior</div>
-    <div class="msrp">Stock&nbsp;#TF569201 &nbsp;·&nbsp; Sticker (MSRP): <s>$63,150</s></div>
+  <!-- THE TRICK -->
+  <div class="card warnbox">
+    <h2 style="margin-top:0">⚠️ Don't fall for their price</h2>
+    <p style="margin:6px 0">The website shows <b>"Selling Price $54,849."</b> That's a <b>trick</b> — it's the sticker <u>plus</u> $1,494 in fees. That's <b>$0 off</b>, actually <i>above</i> sticker.</p>
+    <p style="margin:6px 0 0">Talk about only one number: <b>the discount off the $53,355 sticker (MSRP).</b> Ignore "$54,849" completely.</p>
   </div>
 
-  <div class="note">
-    Heads up: their website price of <strong>$64,644</strong> is the sticker <strong>plus fees</strong> — that's <em>higher</em> than sticker, not a discount. Your goal is to get them <strong>below the $63,150 sticker.</strong>
+  <!-- TARGETS TABLE -->
+  <h2>🎯 Your target prices</h2>
+  <div class="card">
+    <div class="row"><span class="l">Sticker (MSRP)</span><span class="r k">$53,355</span></div>
+    <div class="row"><span class="l"><span class="tag t-stop">NO</span> Their listed price</span><span class="r k">$54,849</span></div>
+    <div class="row"><span class="l"><span class="tag t-floor">FLOOR</span> 10% off — lowest you take</span><span class="r k">$48,020</span></div>
+    <div class="row"><span class="l"><span class="tag t-goal">GOAL</span> 13% off — aim here</span><span class="r k">$46,400</span></div>
+    <div class="row"><span class="l">Open your ask at 15% off</span><span class="r k">$45,350</span></div>
+  </div>
+  <p class="sub" style="margin-top:8px">This is realistic: the average GLC sells ~10% off, and some go 16% off. 13% is aggressive but fair — and this dealer already went below cost for you on the 350e.</p>
+
+  <!-- HOW TO START -->
+  <h2>🗣️ How to open</h2>
+  <div class="say">"I'm ready to lease <b>today</b>, $0 down. I won't pay over sticker. Let's start from the <b>$53,355 MSRP</b> — what's your best discount off that?"</div>
+  <div class="say">If they push the "$54,849 selling price":<br>"That's sticker plus fees. I want a <b>discount off MSRP</b>. Where can you get me?"</div>
+
+  <!-- ESCALATION -->
+  <h2>👔 When to get the manager</h2>
+  <p class="sub" style="margin-top:0">Last time you won without one — the salesperson can usually do ~10% on their own. To push past that toward 13%, you need the manager. Here's the ladder:</p>
+
+  <div class="card">
+    <div class="step"><div class="n">1</div><div class="b">
+      <b>Salesperson gets you near 10%</b>
+      Good start — don't stop. Say: <i>"I appreciate it, but I need to be closer to $46,000 to sign today."</i>
+    </div></div>
+    <div class="step"><div class="n">2</div><div class="b">
+      <b>They say "that's all I can do"</b>
+      That's your cue. Say: <i>"Can you check with your <b>manager</b>? I'm serious, $0 down, ready to sign now — I just need a better number."</i>
+    </div></div>
+    <div class="step"><div class="n">3</div><div class="b">
+      <b>Use your leverage</b>
+      <i>"I leased here before and I'm shopping two other Mercedes dealers. Get me to <b>13% off</b> and I sign with you today instead of them."</i>
+    </div></div>
+    <div class="step"><div class="n">4</div><div class="b">
+      <b>If the manager stalls — start to leave</b>
+      Stand up politely: <i>"Let me think about it and check the other dealers."</i> This almost always brings a better number. You did it on the 350e — it works.
+    </div></div>
+  </div>
+  <div class="say"><b>The words that unlock the manager:</b> "ready to sign <b>today</b>," "$0 down," and "I'm comparing other dealers." Managers approve steeper discounts for a buyer who closes now.</div>
+
+  <!-- LEASE DETAILS -->
+  <h2>🔑 Before you sign</h2>
+  <p class="sub" style="margin-top:0">Text Alejandro a photo of the screen before agreeing to anything. Confirm:</p>
+  <ul class="yes">
+    <li><b>$0 down</b> — nothing due at signing except the first month.</li>
+    <li>Price = the discount you fought for (aim $46,400).</li>
+    <li>Ask for the <b>"money factor"</b> and text it to Alejandro — it should be low.</li>
+    <li><b>39 months, 12,000 miles/year</b> — confirm the miles line (they shrink it to fake a lower payment).</li>
+    <li>Get it <b>itemized in writing</b> before any deposit.</li>
+  </ul>
+
+  <!-- DON'T -->
+  <h2>🚫 Do NOT</h2>
+  <ul class="no">
+    <li>Don't say "<b>allowance</b>" or mention your work car budget — ever.</li>
+    <li>Don't talk <b>monthly payment</b> first — talk <b>total price</b> first.</li>
+    <li>Don't accept <b>add-ons</b> (paint protection, tint, maintenance, VIN etch).</li>
+    <li>Don't <b>put money down</b> to lower the payment.</li>
+    <li>Don't sign anything without texting Alejandro: <i>"I need to talk to Alejandro."</i></li>
+  </ul>
+
+  <!-- CAPTURE -->
+  <h2>📸 Send Alejandro the offer</h2>
+  <div class="card">
+    <p style="margin:0 0 6px" class="sub">Type the numbers they give you, then tap send:</p>
+    <textarea id="note" placeholder="Discount they offered (% off):
+Selling price:
+Money factor:
+Monthly payment:
+Due at signing:"></textarea>
+    <a class="btn" id="sendBtn" href="#">📤 Send to Alejandro</a>
   </div>
 
-  <div class="aim">
-    <div class="t-lbl">Aim to pay</div>
-    <div class="t-num">under $59,000</div>
-    <div class="sub">about $4,000–$5,000 under the sticker</div>
-  </div>
-
-  <p class="sec-label"><span class="dot"></span> What to say</p>
-
-  <div class="scripts">
-    <div class="say"><span class="q">“</span>What's your <b>best price</b> on this car? How far under MSRP can you go?”</div>
-    <div class="say"><span class="q">“</span>Can you include the <b>$7,500 Mercedes lease credit</b> in the quote?”</div>
-    <div class="say"><span class="q">“</span>I'd like the full lease numbers <b>in writing</b> — $0 due at signing, 36 months, 12,000 miles a year.”</div>
-    <div class="say"><span class="q">“</span>Can you print me the <b>full breakdown with every line item</b> — the price of the car, all the fees, and the $7,500 credit listed separately?”</div>
-    <div class="say"><span class="q">“</span>What's the <b>gross cap cost</b> and the <b>adjusted cap cost</b>? Please write both down.”</div>
-    <div class="say"><span class="q">“</span>What's the <b>residual value</b> and the <b>money factor</b> on this lease?”</div>
-  </div>
-
-  <div class="note">
-    If they only give you a monthly payment, ask again for the <strong>itemized breakdown</strong>. A payment by itself doesn't tell us what we're being charged for — the detailed sheet does.
-  </div>
-
-  <p class="sec-label"><span class="dot"></span> Numbers to bring home</p>
-
-  <p class="footnote" style="margin-bottom:2px;">Type them in right here — it saves as you go. Don't worry about what they mean, <b>Alejandro will decode them.</b> Leave blank anything they won't tell you.</p>
-
-  <div class="capture">
-    <div class="cap-row"><label for="f1">Price of the car</label><input id="f1" data-k="price" type="text" inputmode="decimal" placeholder="$"></div>
-    <div class="cap-row"><label for="f2">Gross cap cost</label><input id="f2" data-k="gross" type="text" inputmode="decimal" placeholder="$"></div>
-    <div class="cap-row"><label for="f3">Adjusted cap cost</label><input id="f3" data-k="adj" type="text" inputmode="decimal" placeholder="$"></div>
-    <div class="cap-row"><label for="f4">Residual value</label><input id="f4" data-k="residual" type="text" inputmode="decimal" placeholder="$"></div>
-    <div class="cap-row"><label for="f5">Money factor</label><input id="f5" data-k="mf" type="text" inputmode="decimal" placeholder="0.00___"></div>
-    <div class="cap-row"><label for="f6">$7,500 credit applied?</label><input id="f6" data-k="credit" type="text" placeholder="yes / no"></div>
-    <div class="cap-row"><label for="f7">Monthly payment</label><input id="f7" data-k="payment" type="text" inputmode="decimal" placeholder="$"></div>
-    <div class="cap-row"><label for="f8">Due at signing</label><input id="f8" data-k="das" type="text" inputmode="decimal" placeholder="$"></div>
-    <div class="cap-row"><label for="f9">Anything else / notes</label><input id="f9" data-k="notes" type="text" placeholder="optional"></div>
-  </div>
-
-  <div class="saved" id="savedMsg">✓ Saved on your phone</div>
-
-  <div class="btnrow">
-    <button class="btn" id="sendBtn" type="button">Send these to Alejandro</button>
-    <button class="btn ghost" id="clearBtn" type="button">Clear all</button>
-  </div>
-
-  <p class="footnote" style="text-align:center;">Tap send when you're done — it opens a text with everything filled in. <b>Also take a photo of the printout.</b></p>
-
-  <p class="sec-label"><span class="dot"></span> Don't do this</p>
-
-  <div class="donts">
-    <div class="dont"><span class="x">✕</span><div>Don't tell them your budget or monthly number.<small>Let them give you a price first.</small></div></div>
-    <div class="dont"><span class="x">✕</span><div>Don't agree to a payment, hand over a card, or leave a deposit today.</div></div>
-    <div class="dont"><span class="x">✕</span><div>Don't fall for “this price is only good today.”<small>A real deal is still there tomorrow.</small></div></div>
-    <div class="dont"><span class="x">✕</span><div>Don't rush. You're comparing, not buying.</div></div>
-  </div>
-
-  <div class="callout">
-    <p class="k">The one rule that matters most</p>
-    <h2>Get it in writing</h2>
-    <p>Before you leave, get the full quote <b>on paper</b> — take it with you, or snap a clear photo of every page. That sheet is what gives us the power later.</p>
-  </div>
-
-  <div class="exit">
-    <p class="k">Your exit line</p>
-    <p>“This is really helpful — can I take the printout with me? I'll go over it with Alejandro and get back to you this week.”</p>
-  </div>
-
-  <p class="signoff">You've got this. You're just collecting a good offer — <b>Alejandro handles the rest.</b></p>
-
+  <p class="foot">You already won this once. Same dealer, stronger position. Aim 13%, never below 10%, and bring in the manager the moment the salesperson stalls. 🏁</p>
 </div>
 
 <script>
-(function () {
-  var KEY = 'glc-quote-v1';
-  var inputs = Array.prototype.slice.call(document.querySelectorAll('.cap-row input'));
-  var savedMsg = document.getElementById('savedMsg');
-  var LABELS = {
-    price: 'Price of the car', gross: 'Gross cap cost', adj: 'Adjusted cap cost',
-    residual: 'Residual value', mf: 'Money factor', credit: '$7,500 credit applied',
-    payment: 'Monthly payment', das: 'Due at signing', notes: 'Notes'
-  };
-
-  function store(obj) {
-    try { localStorage.setItem(KEY, JSON.stringify(obj)); return true; } catch (e) { return false; }
-  }
-  function load() {
-    try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; }
-  }
-
-  // Restore anything previously typed
-  var data = load();
-  inputs.forEach(function (el) {
-    var k = el.getAttribute('data-k');
-    if (data[k]) el.value = data[k];
+  var ta=document.getElementById('note');
+  try{ if(localStorage.getItem('glc300note')) ta.value=localStorage.getItem('glc300note'); }catch(e){}
+  ta.addEventListener('input',function(){ try{localStorage.setItem('glc300note',ta.value);}catch(e){} });
+  document.getElementById('sendBtn').addEventListener('click',function(ev){
+    ev.preventDefault();
+    var body="GLC 300 dealer offer:\n\n"+ta.value;
+    if(navigator.share){ navigator.share({title:'GLC 300 offer',text:body}).catch(function(){fallback(body);}); }
+    else fallback(body);
   });
-
-  var flashTimer;
-  function flashSaved() {
-    savedMsg.classList.add('on');
-    clearTimeout(flashTimer);
-    flashTimer = setTimeout(function () { savedMsg.classList.remove('on'); }, 1600);
-  }
-
-  var saveTimer;
-  function collect() {
-    var out = {};
-    inputs.forEach(function (el) {
-      var v = el.value.trim();
-      if (v) out[el.getAttribute('data-k')] = v;
-    });
-    return out;
-  }
-
-  inputs.forEach(function (el) {
-    el.addEventListener('input', function () {
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(function () {
-        if (store(collect())) flashSaved();
-      }, 350);
-    });
-  });
-
-  function buildMessage() {
-    var d = collect();
-    var lines = ['GLC 350e quote — stock TF569201', ''];
-    Object.keys(LABELS).forEach(function (k) {
-      if (d[k]) lines.push(LABELS[k] + ': ' + d[k]);
-    });
-    if (lines.length === 2) return null;
-    return lines.join('\n');
-  }
-
-  document.getElementById('sendBtn').addEventListener('click', function () {
-    var msg = buildMessage();
-    if (!msg) { alert('Type in at least one number first.'); return; }
-    if (navigator.share) {
-      navigator.share({ text: msg }).catch(function () {});
-      return;
-    }
-    // Fallback: SMS, then clipboard
-    var sms = 'sms:?&body=' + encodeURIComponent(msg);
-    var win = window.open(sms, '_self');
-    if (!win && navigator.clipboard) {
-      navigator.clipboard.writeText(msg).then(function () {
-        alert('Copied! Paste it into a text to Alejandro.');
-      });
-    }
-  });
-
-  document.getElementById('clearBtn').addEventListener('click', function () {
-    if (!confirm('Clear everything you typed?')) return;
-    inputs.forEach(function (el) { el.value = ''; });
-    try { localStorage.removeItem(KEY); } catch (e) {}
-  });
-})();
+  function fallback(body){ window.location.href="sms:&body="+encodeURIComponent(body); }
 </script>
+</body>
+</html>
